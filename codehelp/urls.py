@@ -17,8 +17,13 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
+from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("¡CodeHelp está funcionando correctamente! 🚀")
 
 urlpatterns = [
+    path('', home),  # ✅ Ruta principal
     path('admin/', admin.site.urls),
-    path('usuarios/', include('usuarios.urls')),  
+    path('usuarios/', include('usuarios.urls')),
 ]
