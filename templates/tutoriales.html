@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explora nuestros tutoriales en video sobre desarrollo web, HTML, CSS y más.">
+    <title>Tutoriales - CodeHelp</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+</head>
+<body>
+
+<header>
+    <h1>CodeHelp</h1>
+    <h2>Tutoriales en Video</h2>
+    <p>Aprende paso a paso con nuestros tutoriales.</p>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="comentarios.html">Comentarios</a></li>
+        <li><a href="tutoriales.html">Tutoriales</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="https://www.uat.edu.mx/" target="_blank">UAT</a></li>
+    </ul>
+</nav>
+
+<section>
+    <h3>Lista de Tutoriales</h3>
+    <ol class="lista-videos">
+        <li>
+            <h4>Introducción a HTML</h4>
+            <div class="video">
+                <iframe src="https://www.youtube.com/embed/ELSm-G201Ls" allowfullscreen></iframe>
+            </div>
+        </li>
+        <li>
+            <h4>CSS desde cero</h4>
+            <div class="video">
+                <iframe src="https://www.youtube.com/embed/rr2H086z16s" allowfullscreen></iframe>
+            </div>
+        </li>
+        <li>
+            <h4>Introducción a JavaScript</h4>
+            <div class="video">
+                <iframe src="https://www.youtube.com/embed/z95mZVUcJ-E" allowfullscreen></iframe>
+            </div>
+        </li>
+    </ol>
+</section>
+
+<section>
+    <div class="boton-centro">
+        <button onclick="ocultarNoticias()">Ocultar Noticias</button>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2025 CodeHelp - Todos los derechos reservados</p>
+</footer>
+
+<script>
+    function ocultarNoticias() {
+       
+        alert("Noticias ocultadas.");
+    }
+</script>
+
+</body>
+</html>

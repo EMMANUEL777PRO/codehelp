@@ -20,10 +20,15 @@ from django.urls import path, include
 from django.http import HttpResponse
 
 def home(request):
-    return HttpResponse("¡CodeHelp está funcionando correctamente! 🚀")
+    return HttpResponse("¡CodeHelp está funcionando correctamente! ")
+
+from django.contrib import admin
+from django.urls import path, include
+from codehelp.views import home  
 
 urlpatterns = [
-    path('', home),  # ✅ Ruta principal
+    path('', home, name='home'),               
     path('admin/', admin.site.urls),
-    path('usuarios/', include('usuarios.urls')),
+    path('usuarios/', include('usuarios.urls')), 
 ]
+

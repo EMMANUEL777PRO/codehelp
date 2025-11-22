@@ -8,9 +8,9 @@ def register(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Cuenta creada correctamente. ¡Ahora puedes iniciar sesión!')
-            return redirect('register')  # o puedes redirigir a 'login' si tienes esa vista
+            return redirect('register') 
     else:
         form = UserCreationForm()
 
-    # 🔹 Este return debe ir fuera del if, no dentro del else
+    
     return render(request, 'usuarios/register.html', {'form': form})
