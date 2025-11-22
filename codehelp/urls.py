@@ -16,19 +16,17 @@ Including another URLconf
 """
 
 from django.contrib import admin
+from django.urls import path
+from codehelp import views  
 from django.urls import path, include
-from django.http import HttpResponse
-
-def home(request):
-    return HttpResponse("¡CodeHelp está funcionando correctamente! ")
-
-from django.contrib import admin
-from django.urls import path, include
-from codehelp.views import home  
 
 urlpatterns = [
-    path('', home, name='home'),               
     path('admin/', admin.site.urls),
-    path('usuarios/', include('usuarios.urls')), 
+    path('', views.home, name='home'), 
+    path('comentarios/', views.comentarios, name='comentarios'),
+    path('tutoriales/', views.tutoriales, name='tutoriales'),
+    path('contacto/', views.contacto, name='contacto'),
+    path('usuarios/', include('usuarios.urls')),  
 ]
+
 

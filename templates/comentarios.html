@@ -1,106 +1,52 @@
-<!DOCTYPE html>
-<html lang="es">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Deja tu comentario sobre CodeHelp y comparte tu experiencia.">
-    <title>Comentarios - CodeHelp</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
-    
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const formulario = document.getElementById("formulario-comentario");
-            const listaComentarios = document.getElementById("lista-comentarios");
+{% block title %}Comentarios | CodeHelp{% endblock %}
 
-           
-            function cargarComentarios() {
-                let comentarios = JSON.parse(localStorage.getItem("comentarios")) || [];
-                listaComentarios.innerHTML = "";
-                comentarios.forEach(comentario => {
-                    let div = document.createElement("div");
-                    div.classList.add("comentario");
-                    div.innerHTML = `<strong>${comentario.nombre}</strong>: ${comentario.mensaje}`;
-                    listaComentarios.appendChild(div);
-                });
-            }
+{% block content %}
+<section>
+    <h2>Comentarios de usuarios</h2>
+    <form id="formulario-comentario">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
 
-           
-            formulario.addEventListener("submit", function (event) {
-                event.preventDefault();
-                let nombre = document.getElementById("nombre").value.trim();
-                let mensaje = document.getElementById("mensaje").value.trim();
+        <label for="mensaje">Comentario:</label>
+        <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
 
-                
-                if (nombre === "" || mensaje === "") {
-                    alert("Por favor, completa todos los campos.");
-                    return;
-                }
+        <button type="submit">Enviar</button>
+    </form>
 
-                let nuevoComentario = { nombre, mensaje };
-                let comentarios = JSON.parse(localStorage.getItem("comentarios")) || [];
-                comentarios.push(nuevoComentario);
-                localStorage.setItem("comentarios", JSON.stringify(comentarios));
+    <div id="lista-comentarios"></div>
+</section>
 
-              
-                document.getElementById("nombre").value = "";
-                document.getElementById("mensaje").value = "";
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const formulario = document.getElementById("formulario-comentario");
+    const listaComentarios = document.getElementById("lista-comentarios");
 
-               
-                cargarComentarios();
-            });
-
-          
-            cargarComentarios();
+    function cargarComentarios() {
+        let comentarios = JSON.parse(localStorage.getItem("comentarios")) || [];
+        listaComentarios.innerHTML = "";
+        comentarios.forEach(c => {
+            let div = document.createElement("div");
+            div.classList.add("comentario");
+            div.innerHTML = `<strong>${c.nombre}</strong>: ${c.mensaje}`;
+            listaComentarios.appendChild(div);
         });
-    </script>
-</head>
+    }
 
-<body>
+    formulario.addEventListener("submit", function(event) {
+        event.preventDefault();
+        let nombre = document.getElementById("nombre").value.trim();
+        let mensaje = document.getElementById("mensaje").value.trim();
+        if(!nombre || !mensaje) return;
+        let comentarios = JSON.parse(localStorage.getItem("comentarios")) || [];
+        comentarios.push({ nombre, mensaje });
+        localStorage.setItem("comentarios", JSON.stringify(comentarios));
+        formulario.reset();
+        cargarComentarios();
+    });
 
-    <header>
-        <h1>CodeHelp</h1>
-        <h2>Opiniones y Comentarios</h2>
-        <p>Comparte tu experiencia y ayúdanos a mejorar nuestra plataforma.</p>
-    </header>
-
-    
-    <nav>
-        <ul>
-            <li><a href="comentarios.html">Comentarios</a></li>
-            <li><a href="tutoriales.html">Tutoriales</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-            <li><a href="https://www.uat.edu.mx/" target="_blank">UAT</a></li>
-        </ul>
-    </nav>
-
-    <section>
-        <h3>Deja tu comentario</h3>
-        <form id="formulario-comentario" action="guardar_comentario.php" method="post">
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required>
-
-            <label for="mensaje">Comentario:</label>
-            <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
-
-            <button type="submit">Enviar</button>
-        </form>
-    </section>
-
-    
-    <section>
-        <h3>Comentarios de usuarios</h3>
-        <div id="lista-comentarios">
-        </div>
-    </section>
-
-   
-    <footer>
-        <p>&copy; 2025 CodeHelp - Todos los derechos reservados</p>
-    </footer>
-
-</body>
-
-</html>
-
+    cargarComentarios();
+});
+</script>
+{% endblock %}
