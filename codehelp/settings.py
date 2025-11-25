@@ -76,12 +76,19 @@ TEMPLATES = [
 ]
 
 # static
+import os
+
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / "static"]
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-WSGI_APPLICATION = 'codehelp.wsgi.application'
+DEBUG = False
+
+ALLOWED_HOSTS = ['*']
 
 
 # Database
