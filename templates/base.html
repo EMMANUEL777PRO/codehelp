@@ -3,32 +3,34 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>CodeHelp</title>
+    <title>{% block title %}CodeHelp{% endblock %}</title>
+
     <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
 </head>
 
 <body>
-    <header>
-        <img src="{% static 'imagenes/logo.png' %}" alt="Logo CodeHelp" class="logo">
-        <h1>CodeHelp</h1>
-    </header>
 
-    <nav>
-        <ul>
-            <li><a href="{% url 'comentarios' %}">Comentarios</a></li>
-            <li><a href="{% url 'tutoriales' %}">Tutoriales</a></li>
-            <li><a href="{% url 'contacto' %}">Contacto</a></li>
-            <li><a href="{% url 'registro' %}">Registrarse</a></li>
-        </ul>
-    </nav>
+<header>
+    <img src="{% static 'imagenes/logo.png' %}" alt="Logo CodeHelp" class="logo">
+    <h1>CodeHelp</h1>
+</header>
 
-    <main>
-        {% block content %}
-        {% endblock %}
-    </main>
+<nav>
+    <ul>
+        <li><a href="{% url 'home' %}">Inicio</a></li>
+        <li><a href="{% url 'comentarios' %}">Comentarios</a></li>
+        <li><a href="{% url 'tutoriales' %}">Tutoriales</a></li>
+        <li><a href="{% url 'contacto' %}">Contacto</a></li>
+    </ul>
+</nav>
 
-    <footer>
-        <p>&copy; 2025 CodeHelp - Todos los derechos reservados</p>
-    </footer>
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+<footer>
+    <p>&copy; 2025 CodeHelp</p>
+</footer>
+
 </body>
 </html>
