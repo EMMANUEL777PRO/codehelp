@@ -1,4 +1,6 @@
 {% load static %}
+<link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -16,11 +18,11 @@
 
     <nav>
         <ul>
-            <li><a href="{% url 'home' %}">Inicio</a></li>
-            <li><a href="{% url 'comentarios' %}">Comentarios</a></li>
-            <li><a href="{% url 'tutoriales' %}">Tutoriales</a></li>
-            <li><a href="{% url 'contacto' %}">Contacto</a></li>
-            <li><a href="{% url 'register' %}">Registrarse</a></li>
+            <a href="{% url 'comentarios' %}">Comentarios</a>
+            <a href="{% url 'tutoriales' %}">Tutoriales</a>
+            <a href="{% url 'contacto' %}">Contacto</a>
+            <a href="{% url 'registro' %}">Registrarse</a>
+
         </ul>
     </nav>
 

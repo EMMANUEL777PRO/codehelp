@@ -23,9 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-g36&hy5l3wgu#x3(j6@6-n9g!udp4ds+9i!&qi*vhi4#dnu+*^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['codehelp-yfbw.onrender.com',
+ALLOWED_HOSTS = [
+    'codehelp-yfbw.onrender.com',
     '.onrender.com'
     ]
 
@@ -70,6 +71,7 @@ TEMPLATES = [
 
 # static
 STATIC_URL = '/static/'
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = [
