@@ -25,13 +25,7 @@ SECRET_KEY = 'django-insecure-g36&hy5l3wgu#x3(j6@6-n9g!udp4ds+9i!&qi*vhi4#dnu+*^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    'codehelp-yfbw.onrender.com',
-    '.onrender.com',
-    '127.0.0.1',
-    'localhost'
-]
-
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -56,9 +50,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'codehelp.urls'
-from pathlib import Path
-
-BASE_DIR = Path(__file__).resolve().parent.parent
 # templates
 TEMPLATES = [
     {
@@ -85,11 +76,6 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-DEBUG = False
-
-ALLOWED_HOSTS = ['*']
-
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
@@ -135,10 +121,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
-import os
-
-STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
