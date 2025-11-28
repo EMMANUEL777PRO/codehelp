@@ -4,6 +4,20 @@ from django.contrib import messages
 from .forms import RegistroForm
 from django.contrib.auth.forms import AuthenticationForm
 
+# Vistas de contenido
+def home(request):
+    return render(request, 'codehelp.html')
+
+def comentarios(request):
+    return render(request, 'comentarios.html')
+
+def tutoriales(request):
+    return render(request, 'tutoriales.html')
+
+def contacto(request):
+    return render(request, 'contacto.html')
+
+# Vistas de usuario
 def registro(request):
     if request.method == 'POST':
         form = RegistroForm(request.POST)
@@ -14,7 +28,6 @@ def registro(request):
     else:
         form = RegistroForm()
     return render(request, 'usuarios/registro.html', {'form': form})
-
 
 def login_view(request):
     if request.method == 'POST':
@@ -29,7 +42,6 @@ def login_view(request):
     else:
         form = AuthenticationForm()
     return render(request, 'usuarios/login.html', {'form': form})
-
 
 def logout_view(request):
     logout(request)

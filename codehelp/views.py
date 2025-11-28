@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 def home(request):
-    return render(request, 'CodeHelp.html')
+    return render(request, 'codehelp.html')
 
 def comentarios(request):
     return render(request, 'comentarios.html')
