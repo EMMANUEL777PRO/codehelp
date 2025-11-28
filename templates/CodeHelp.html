@@ -1,14 +1,7 @@
 {% extends "base.html" %}
-{% load static %}
-
 {% block title %}Inicio | CodeHelp{% endblock %}
 
-{% block head %}
-<link rel="stylesheet" href="{% static 'css/estilos.css' %}">
-{% endblock %}
-
 {% block content %}
-
 <section class="hero">
     <img src="{% static 'img/logo.png' %}" alt="Logo CodeHelp" style="height:60px;">
     <h2>Bienvenido a CodeHelp</h2>
@@ -37,5 +30,4 @@
     <h2>Contacto</h2>
     <p>Si tienes dudas o sugerencias, no dudes en contactarnos.</p>
 </section>
-
 {% endblock %}
