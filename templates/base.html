@@ -24,6 +24,12 @@
             <li><a href="{% url 'tutoriales' %}">Tutoriales</a></li>
             <li><a href="{% url 'comentarios' %}">Comentarios</a></li>
             <li><a href="{% url 'contacto' %}">Contacto</a></li>
+            {% if user.is_authenticated %}
+        <li><a href="{% url 'logout' %}">Cerrar sesión</a></li>
+    {% else %}
+        <li><a href="{% url 'login' %}">Iniciar sesión</a></li>
+        <li><a href="{% url 'registro' %}">Registrarse</a></li>
+    {% endif %}
         </ul>
     </nav>
 </header>
