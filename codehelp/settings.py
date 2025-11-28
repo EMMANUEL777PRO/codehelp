@@ -23,12 +23,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-g36&hy5l3wgu#x3(j6@6-n9g!udp4ds+9i!&qi*vhi4#dnu+*^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-ALLOWED_HOSTS = [
-    'codehelp-yfbw.onrender.com',
-    'localhost',
-    '127.0.0.1'
-]
+DEBUG = True
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 

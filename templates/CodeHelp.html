@@ -1,29 +1,41 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}Inicio | CodeHelp{% endblock %}
+
+{% block head %}
 <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
-<img src="{% static 'img/logo.png' %}" alt="Logo" style="height:60px;">
+{% endblock %}
+
 {% block content %}
-<section>
+
+<section class="hero">
+    <img src="{% static 'img/logo.png' %}" alt="Logo CodeHelp" style="height:60px;">
     <h2>Bienvenido a CodeHelp</h2>
     <p>Explora nuestros tutoriales y mejora tus habilidades en desarrollo web, programación y más.</p>
 </section>
 
-<section>
+<section class="destacados">
     <h2>Tutoriales Destacados</h2>
-    <div class="destacados">
-        <article>
+    <div class="grid">
+        <div class="card">
             <h3>HTML Básico</h3>
-            <p>Aprende a crear tu primera página web.</p>
-        </article>
-        <article>
-            <h3>CSS desde cero</h3>
-            <p>Descubre cómo hacer páginas atractivas.</p>
-        </article>
-        <article>
-            <h3>JavaScript para Principiantes</h3>
-            <p>Empieza a programar desde cero.</p>
-        </article>
+            <p>Aprende a estructurar páginas web desde cero.</p>
+        </div>
+        <div class="card">
+            <h3>CSS Moderno</h3>
+            <p>Diseña sitios web atractivos y responsivos.</p>
+        </div>
+        <div class="card">
+            <h3>JavaScript</h3>
+            <p>Agrega interactividad a tus páginas web.</p>
+        </div>
     </div>
 </section>
+
+<section class="contacto">
+    <h2>Contacto</h2>
+    <p>Si tienes dudas o sugerencias, no dudes en contactarnos.</p>
+</section>
+
 {% endblock %}
