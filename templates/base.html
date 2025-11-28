@@ -3,34 +3,17 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}CodeHelp{% endblock %}</title>
-
-    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <title>CodeHelp</title>
 </head>
-
 <body>
 
-<header>
-    <img src="{% static 'img/logo.png' %}" alt="Logo" style="height:60px;">
-    <h1>CodeHelp</h1>
+<header style="display:flex; align-items:center; background:#4a90e2; padding:10px;">
+    <img src="{% static 'images/logo.png' %}" alt="Logo" style="height:60px; margin-right:15px;">
+    <h1 style="color:white;">CodeHelp</h1>
 </header>
 
-<nav>
-    <ul>
-        <li><a href="{% url 'home' %}">Inicio</a></li>
-        <li><a href="{% url 'comentarios' %}">Comentarios</a></li>
-        <li><a href="{% url 'tutoriales' %}">Tutoriales</a></li>
-        <li><a href="{% url 'contacto' %}">Contacto</a></li>
-    </ul>
-</nav>
-
-<main>
-    {% block content %}{% endblock %}
-</main>
-
-<footer>
-    <p>&copy; 2025 CodeHelp</p>
-</footer>
+{% block content %}
+{% endblock %}
 
 </body>
 </html>
