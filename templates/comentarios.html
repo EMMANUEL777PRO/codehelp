@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
+
 {% block title %}Comentarios | CodeHelp{% endblock %}
 
 {% block content %}
-<section class="contacto">
+<section>
     <h2>Comentarios de usuarios</h2>
     <form id="formulario-comentario">
         <label for="nombre">Nombre:</label>
@@ -15,7 +16,7 @@
         <button type="submit">Enviar</button>
     </form>
 
-    <div id="lista-comentarios" class="lista-comentarios"></div>
+    <div id="lista-comentarios"></div>
 </section>
 
 <script>
